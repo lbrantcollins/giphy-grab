@@ -8,11 +8,36 @@ class SearchForm extends Component {
 		}
 	}
 
+	handleSubmit = (event) => {
+		event.preventDefault();
+		this.props.parseQuery(this.state.query);
+		this.setState({
+			query: ''
+		})
+	}
+
+	handleChange = (event) => {
+		this.setState( {
+			query: event.currentTarget.value
+		})
+	}
+
 	render() {
 
 
 		return (
-		<h1>Hello world!</h1>
+			
+			<form >
+				Search:
+				<input
+					type="text"
+					name="query"
+					value={this.state.query}
+					placeholder="simons cat"
+					onChange={this.handleChange}
+				/>
+			</form>
+
 		);
 
 	}
