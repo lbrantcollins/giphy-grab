@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, Button } from 'react-bootstrap';
+import SearchForm from './SearchForm'
 
 
 class App extends Component {
@@ -37,28 +37,15 @@ class App extends Component {
 
   render() {
 
+    // <iframe src="https://giphy.com/embed/3o6Yg1m7hNNvQm7SKs" width="40" height="30" frameBorder="0" alt = "Giphy Logo"></iframe>
+
     return (
       <div>
-
-        <Navbar bg="dark" variant="dark">
-          <Navbar.Brand href="#home">
-            <img
-              alt=""
-              src="/logo.svg"
-              width="30"
-              height="30"
-              className="d-inline-block align-top"
-            />
-            {' React Bootstrap'}
-          </Navbar.Brand>
-        </Navbar>
-
-        <h2>This is App() talking</h2>
-
-        <iframe src="https://giphy.com/embed/3o6Yg1m7hNNvQm7SKs" width="40" height="30" frameBorder="0"></iframe>
-
        
+        <SearchForm />
+        
         <iframe src="https://giphy.com/embed/1URlthYDD9ZfNe68JT" alt="simons cat" frameBorder="0"></iframe>
+
 
       </div>
     );
