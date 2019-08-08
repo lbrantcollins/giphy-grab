@@ -27,8 +27,7 @@ class SearchForm extends Component {
 
 		return (
 			
-			<form >
-				Search:
+			<form onSubmit={this.handleSubmit}>
 				<input
 					type="text"
 					name="query"
@@ -36,6 +35,7 @@ class SearchForm extends Component {
 					placeholder="simons cat"
 					onChange={this.handleChange}
 				/>
+				<button> Search </button>
 			</form>
 
 		);
