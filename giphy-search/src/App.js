@@ -16,34 +16,28 @@ class App extends Component {
   //   this.getGiphs()
   // }
 
-  parseQuery = (query) => {
+  parseQuery = async (query) => {
     const queryString = "https://api.giphy.com/v1/gifs/search?api_key=SCKcemhFZO6iLxvHCMyDvaQGX8Z5l0V7&q="
       + query + "=&limit=6&offset=0&rating=G&lang=en"
-    console.log("queryString BEFORE replacing spaces");
-    console.log(queryString);
-    queryString.replace(/ /g, "%20");
-    console.log("queryString AFTER replacing spaces");
-    console.log(queryString);
-    this.setState({
+    await this.setState({
       query: queryString
     })
+    this.getGiphs();
     
   }
 
   getGiphs = async () => {
     
   // giphy API Key: SCKcemhFZO6iLxvHCMyDvaQGX8Z5l0V7
-  // request URL: https://api.giphy.com/v1/gifs/search?api_key=SCKcemhFZO6iLxvHCMyDvaQGX8Z5l0V7&q=&limit=25&offset=0&rating=G&lang=en
+  // request URL: 
+  // https://api.giphy.com/v1/gifs/
+  // search?api_key=SCKcemhFZO6iLxvHCMyDvaQGX8Z5l0V7&q=SEARCH%20TERM
+  // =&limit=25&offset=0&rating=G&lang=en
 
     try {
-      
-      const giphsResponse = await fetch();
-
-      // const giphsResponse = await fetch("https://api.giphy.com/v1/gifs/search?api_key=SCKcemhFZO6iLxvHCMyDvaQGX8Z5l0V7&q=Simons%20cat=&limit=6&offset=0&rating=G&lang=en");
-
+      const giphsResponse = await fetch(this.state.query);
       const giphsJson = await giphsResponse.json();
-
-
+      console.log(giphsJson);
     } catch(err) {
       console.error("Error on fetch:", err);
     }
