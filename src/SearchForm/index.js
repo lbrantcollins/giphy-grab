@@ -39,7 +39,7 @@ class SearchForm extends Component {
 
 				<h3> Enter a search term to find some Giphy GIFs</h3>
 
-				<form onSubmit={this.handleSubmit}>
+				<form onSubmit={this.handleSubmit} onClick={this.handleSubmit}>
 
 					<div className="ui icon input">
 
